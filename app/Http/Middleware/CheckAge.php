@@ -13,8 +13,16 @@ class CheckAge
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        return $next($request);
-    }
+
+        if (auth()->user()->email == "rubencg12@gmail.com") {
+            return $next($request);
+        } else {
+            return redirect('no-autorizado');
+        }
+
+
+
+ }
 }

@@ -20,4 +20,8 @@ Route::get('prueba', function () {
 
     return 'has ingresado a la ruta';
 
-})->middleware('age');
+})->middleware(['auth:sanctum','age']);
+
+Route::get('no-autorizado', function () {
+    return 'este usuario no es valido';
+});
